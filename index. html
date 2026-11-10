@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EDAN STORE - Toko Sepatu Branded Original</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Font Inter & Montserrat -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 antialiased flex flex-col min-h-screen">
+
+    <!-- Header / Navbar -->
+    <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-gray-100 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <!-- Logo EDAN STORE -->
+            <div class="flex items-center space-x-2">
+                <div class="bg-red-600 text-white p-2 rounded-xl flex items-center justify-center font-black">
+                    <i class="fa-solid fa-bolt text-xl"></i>
+                </div>
+                <span class="text-xl font-black tracking-wider text-gray-900">EDAN<span class="text-red-600">STORE</span></span>
+            </div>
+
+            <!-- Navigation Links -->
+            <nav class="hidden md:flex space-x-8 text-sm font-bold text-gray-600 uppercase tracking-wide">
+                <a href="#katalog" class="hover:text-red-600 transition">Katalog Sepatu</a>
+                <a href="#size-chart" class="hover:text-red-600 transition">Panduan Ukuran</a>
+                <a href="#pembayaran" class="hover:text-red-600 transition">Metode Pembayaran</a>
+            </nav>
+
+            <!-- Quick Contact Button WA -->
+            <a href="https://wa.me/6285794793050" target="_blank" class="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white text-xs sm:text-sm font-bold px-4 py-2.5 rounded-xl transition shadow-sm hover:shadow-md">
+                <i class="fa-brands fa-whatsapp text-lg"></i>
+                <span>Order WA</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Banner -->
+    <section class="relative bg-gradient-to-r from-gray-950 via-gray-900 to-red-950 text-white py-16 lg:py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
+            <div class="max-w-xl text-center md:text-left">
+                <span class="inline-block bg-red-600/20 text-red-400 border border-red-500/30 text-xs px-3 py-1 rounded-full font-bold uppercase tracking-wider mb-4">
+                    🔥 EDAN STORE - 100% Original & Guaranteed
+                </span>
+                <h1 class="text-4xl sm:text-6xl font-black leading-tight mb-4 tracking-tight">SEPATU BRANDED HARGA EDAN!</h1>
+                <p class="text-gray-300 text-base sm:text-lg mb-8">Koleksi sneaker paling hits dari Nike, Adidas, Jordan, hingga New Balance. Pembayaran fleksibel: Cash, Transfer Bank, E-Wallet, hingga Angsuran!</p>
+                <div class="flex flex-wrap gap-4 justify-center md:justify-start">
+                    <a href="#katalog" class="bg-red-600 hover:bg-red-700 text-white font-bold px-6 py-3.5 rounded-xl transition shadow-lg shadow-red-600/30">Lihat Katalog</a>
+                    <a href="#size-chart" class="bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold px-6 py-3.5 rounded-xl transition">Panduan Size</a>
+                </div>
+            </div>
+            <div class="w-full md:w-1/2 flex justify-center">
+                <img src="https://images.unsplash.com/photo-1552346154-21d32810aba3?auto=format&fit=crop&w=800&q=80" alt="Edan Store Sneaker" class="w-full max-w-md rounded-2xl shadow-2xl object-cover transform -rotate-3 hover:rotate-0 transition duration-500 border-2 border-red-500/20">
+            </div>
+        </div>
+    </section>
+
+    <!-- Filter & Search Section -->
+    <section id="katalog" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-6">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
+            <div>
+                <h2 class="text-2xl sm:text-3xl font-black text-gray-900 tracking-tight">KATALOG PRODUK EDAN</h2>
+                <p class="text-gray-500 text-sm mt-1">Pilih sepatu impianmu dan pesan langsung via WhatsApp 085794793050</p>
+            </div>
+            
+            <!-- Category Filter Buttons -->
+            <div class="flex items-center gap-2 overflow-x-auto pb-2 hide-scrollbar" id="category-filters">
+                <button onclick="filterCategory('all')" class="cat-btn border px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-gray-900 text-white border-gray-900 transition">Semua Brand</button>
+                <button onclick="filterCategory('Nike')" class="cat-btn border px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-white text-gray-700 border-gray-200 hover:bg-gray-100 transition">Nike</button>
+                <button onclick="filterCategory('Adidas')" class="cat-btn border px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-white text-gray-700 border-gray-200 hover:bg-gray-100 transition">Adidas</button>
+                <button onclick="filterCategory('Jordan')" class="cat-btn border px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-white text-gray-700 border-gray-200 hover:bg-gray-100 transition">Jordan</button>
+                <button onclick="filterCategory('New Balance')" class="cat-btn border px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-white text-gray-700 border-gray-200 hover:bg-gray-100 transition">New Balance</button>
+            </div>
+        </div>
+
+        <!-- Product Cards Grid -->
+        <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            <!-- Products injected via JavaScript -->
+        </div>
+    </section>
+
+    <!-- Size Chart Section -->
+    <section id="size-chart" class="bg-gray-100 py-16 my-12 border-y border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-10">
+                <h2 class="text-2xl sm:text-3xl font-black text-gray-900">TABEL UKURAN (SIZE CHART)</h2>
+                <p class="text-gray-600 text-sm mt-2">Ukur panjang kaki (CM) Anda untuk menentukan ukuran sepatu yang paling pas.</p>
+            </div>
+
+            <div class="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden">
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse text-sm">
+                        <thead>
+                            <tr class="bg-gray-900 text-white font-bold text-xs uppercase tracking-wider">
+                                <th class="p-4">EU Size</th>
+                                <th class="p-4">US Men</th>
+                                <th class="p-4">US Women</th>
+                                <th class="p-4">UK Size</th>
+                                <th class="p-4">Panjang Kaki (CM)</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-200">
+                            <tr class="hover:bg-gray-50">
+                                <td class="p-4 font-black text-red-600">38</td>
+                                <td class="p-4">5.5</td>
+                                <td class="p-4">7.0</td>
+                                <td class="p-4">5.0</td>
+                                <td class="p-4 font-semibold">23.5 cm</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="p-4 font-black text-red-600">39</td>
+                                <td class="p-4">6.5</td>
+                                <td class="p-4">8.0</td>
+                                <td class="p-4">6.0</td>
+                                <td class="p-4 font-semibold">24.5 cm</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="p-4 font-black text-red-600">40</td>
+                                <td class="p-4">7.0</td>
+                                <td class="p-4">8.5</td>
+                                <td class="p-4">6.0</td>
+                                <td class="p-4 font-semibold">25.0 cm</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="p-4 font-black text-red-600">41</td>
+                                <td class="p-4">8.0</td>
+                                <td class="p-4">9.5</td>
+                                <td class="p-4">7.0</td>
+                                <td class="p-4 font-semibold">26.0 cm</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="p-4 font-black text-red-600">42</td>
+                                <td class="p-4">8.5</td>
+                                <td class="p-4">10.0</td>
+                                <td class="p-4">7.5</td>
+                                <td class="p-4 font-semibold">26.5 cm</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="p-4 font-black text-red-600">43</td>
+                                <td class="p-4">9.5</td>
+                                <td class="p-4">11.0</td>
+                                <td class="p-4">8.5</td>
+                                <td class="p-4 font-semibold">27.5 cm</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="p-4 font-black text-red-600">44</td>
+                                <td class="p-4">10.0</td>
+                                <td class="p-4">11.5</td>
+                                <td class="p-4">9.0</td>
+                                <td class="p-4 font-semibold">28.0 cm</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Payment Methods Section -->
+    <section id="pembayaran" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="text-center max-w-2xl mx-auto mb-10">
+            <h2 class="text-2xl sm:text-3xl font-black text-gray-900">METODE PEMBAYARAN</h2>
+            <p class="text-gray-600 text-sm mt-2">Dukungan pembayaran lengkap: Cash, Transfer Bank, E-Wallet, hingga Angsuran (Cicilan).</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Cash & Transfer -->
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-200 hover:border-red-500/30 transition">
+                <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center text-xl mb-4">
+                    <i class="fa-solid fa-building-columns"></i>
+                </div>
+                <h3 class="text-lg font-bold text-gray-900 mb-2">Cash & Transfer Bank</h3>
+                <p class="text-xs text-gray-500 mb-4">Bayar Tunai (Cash) atau Transfer melalui rekening bank resmi kami.</p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="bg-gray-100 text-gray-800 text-xs font-bold px-2.5 py-1 rounded">BCA</span>
+                    <span class="bg-gray-100 text-gray-800 text-xs font-bold px-2.5 py-1 rounded">Mandiri (BM)</span>
+                    <span class="bg-gray-100 text-gray-800 text-xs font-bold px-2.5 py-1 rounded">BSI</span>
+                    <span class="bg-gray-100 text-gray-800 text-xs font-bold px-2.5 py-1 rounded">BRI</span>
+                    <span class="bg-gray-100 text-gray-800 text-xs font-bold px-2.5 py-1 rounded">BNI</span>
+                </div>
+            </div>
+
+            <!-- E-Wallet -->
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-200 hover:border-red-500/30 transition">
+                <div class="w-12 h-12 bg-cyan-50 text-cyan-600 rounded-xl flex items-center justify-center text-xl mb-4">
+                    <i class="fa-solid fa-wallet"></i>
+                </div>
+                <h3 class="text-lg font-bold text-gray-900 mb-2">E-Wallet (QRIS)</h3>
+                <p class="text-xs text-gray-500 mb-4">Pembayaran mudah & cepat tinggal scan QRIS atau transfer via dompet digital.</p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="bg-cyan-50 text-cyan-700 text-xs font-bold px-2.5 py-1 rounded">DANA</span>
+                    <span class="bg-purple-50 text-purple-700 text-xs font-bold px-2.5 py-1 rounded">OVO</span>
+                    <span class="bg-green-50 text-green-700 text-xs font-bold px-2.5 py-1 rounded">GOPAY</span>
+                    <span class="bg-red-50 text-red-700 text-xs font-bold px-2.5 py-1 rounded">ShopeePay</span>
+                </div>
+            </div>
+
+            <!-- Angsuran / Paylater -->
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-200 hover:border-red-500/30 transition">
+                <div class="w-12 h-12 bg-red-50 text-red-600 rounded-xl flex items-center justify-center text-xl mb-4">
+                    <i class="fa-solid fa-credit-card"></i>
+                </div>
+                <h3 class="text-lg font-bold text-gray-900 mb-2">Angsuran / Cicilan</h3>
+                <p class="text-xs text-gray-500 mb-4">Beli sekarang bayar nanti dengan tenor fleksibel via mitra Paylater terpercaya.</p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="bg-red-50 text-red-700 text-xs font-bold px-2.5 py-1 rounded">SPayLater</span>
+                    <span class="bg-green-50 text-green-700 text-xs font-bold px-2.5 py-1 rounded">GopayLater</span>
+                    <span class="bg-blue-50 text-blue-700 text-xs font-bold px-2.5 py-1 rounded">Akulaku</span>
+                    <span class="bg-orange-50 text-orange-700 text-xs font-bold px-2.5 py-1 rounded">Kredivo</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-950 text-gray-400 py-10 mt-auto border-t border-gray-800 text-xs sm:text-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
+            <div class="flex items-center justify-center space-x-2">
+                <div class="bg-red-600 text-white p-1.5 rounded-lg flex items-center justify-center font-black">
+                    <i class="fa-solid fa-bolt text-sm"></i>
+                </div>
+                <span class="text-lg font-black tracking-wider text-white">EDAN<span class="text-red-500">STORE</span></span>
+            </div>
+            <p class="font-semibold text-gray-300">EDAN STORE &copy; 2026. Jual-Beli Sepatu Baru Branded Original.</p>
+            <p>Customer Service & Pemesanan: <a href="https://wa.me/6285794793050" class="text-emerald-400 font-bold underline">0857-9479-3050 (WhatsApp)</a></p>
+        </div>
+    </footer>
+
+    <!-- Product Detail & Order Modal -->
+    <div id="modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-white rounded-2xl max-w-lg w-full p-6 relative shadow-2xl max-h-[90vh] overflow-y-auto">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 text-xl font-bold">&times;</button>
+            <div id="modal-content"></div>
+        </div>
+    </div>
+
+    <script>
+        // Data Produk Sepatu EDAN STORE
+        const products = [
+            {
+                id: 1,
+                name: "Nike Air Jordan 1 Retro High",
+                brand: "Jordan",
+                price: 2499000,
+                stock: 8,
+                model: "High-Top Basketball / Lifestyle Sneaker",
+                spec: "Upper terbuat dari premium leather, sol berbahan karet durabel dengan teknologi Air Cushioning untuk kenyamanan seharian. Warna 'Chicago/Black' ikonik.",
+                sizes: [39, 40, 41, 42, 43],
+                image: "https://images.unsplash.com/photo-1584735935682-2f2b69dff9d2?auto=format&fit=crop&w=600&q=80"
+            },
+            {
+                id: 2,
+                name: "Adidas Ultraboost Light 2026",
+                brand: "Adidas",
+                price: 2899000,
+                stock: 5,
+                model: "Running & Daily Comfort",
+                spec: "Menggunakan bahan Primeknit+ fleksibel dan busa Light BOOST 30% lebih ringan. Outsole Continental Rubber untuk grip anti-slip di segala permukaan.",
+                sizes: [40, 41, 42, 43, 44],
+                image: "https://images.unsplash.com/photo-1584735175315-9d5df23860e6?auto=format&fit=crop&w=600&q=80"
+            },
+            {
+                id: 3,
+                name: "New Balance 550 Vintage White",
+                brand: "New Balance",
+                price: 1999000,
+                stock: 12,
+                model: "Retro Casual Lifestyle",
+                spec: "Siluet retro 80-an klasik, material kulit premium sintetis dikombinasikan dengan mesh berpori. Sol karet non-marking sangat nyaman untuk harian.",
+                sizes: [38, 39, 40, 41, 42],
+                image: "https://images.unsplash.com/photo-1539185441755-769473a23570?auto=format&fit=crop&w=600&q=80"
+            },
+            {
+                id: 4,
+                name: "Nike Dunk Low Panda Original",
+                brand: "Nike",
+                price: 1799000,
+                stock: 15,
+                model: "Low-Top Casual Sneaker",
+                spec: "Material smooth leather hitam-putih abadi, peredam impact sol karet dengan pola tread traksi optimal. Sangat fleksibel dipadukan dengan style apapun.",
+                sizes: [39, 40, 41, 42, 43],
+                image: "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&w=600&q=80"
+            },
+            {
+                id: 5,
+                name: "Adidas Samba OG White Black",
+                brand: "Adidas",
+                price: 1699000,
+                stock: 10,
+                model: "Classic Terrace Sneaker",
+                spec: "Bahan full-grain leather dengan aksen suede toe cap legendaris. Sol gum tahan lama dengan style street-wear timeless.",
+                sizes: [39, 40, 41, 42],
+                image: "https://images.unsplash.com/photo-1607522370275-f14206abe5d3?auto=format&fit=crop&w=600&q=80"
+            },
+            {
+                id: 6,
+                name: "New Balance 2002R Protection Pack",
+                brand: "New Balance",
+                price: 2650000,
+                stock: 4,
+                model: "Premium Lifestyle & Running",
+                spec: "Desain deconstructed berbahan premium suede & mesh. Dilengkapi mid-sole N-ergy cushioning serta teknologi ABZORB untuk peredam benturan optimal.",
+                sizes: [40, 41, 42, 43, 44],
+                image: "https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?auto=format&fit=crop&w=600&q=80"
+            }
+        ];
+
+        // Format Rupiah
+        function formatRupiah(number) {
+            return new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', maximumFractionDigits: 0 }).format(number);
+        }
+
+        // Render Produk
+        function renderProducts(filter = 'all') {
+            const grid = document.getElementById('product-grid');
+            grid.innerHTML = '';
+
+            const filtered = filter === 'all' ? products : products.filter(p => p.brand.toLowerCase() === filter.toLowerCase());
+
+            filtered.forEach(product => {
+                grid.innerHTML += `
+                    <div class="bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm hover:shadow-xl transition duration-300 flex flex-col">
+                        <div class="relative bg-gray-100 overflow-hidden group h-56">
+                            <img src="${product.image}" alt="${product.name}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                            <span class="absolute top-3 left-3 bg-gray-900/80 backdrop-blur-md text-white text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider">${product.brand}</span>
+                            <span class="absolute top-3 right-3 bg-emerald-500 text-white text-[10px] font-bold px-2.5 py-1 rounded-full">Stok: ${product.stock} pasang</span>
+                        </div>
+                        <div class="p-5 flex flex-col flex-grow">
+                            <h3 class="font-bold text-gray-900 text-lg mb-1 leading-snug">${product.name}</h3>
+                            <p class="text-xs text-red-600 font-semibold mb-3"><i class="fa-solid fa-layer-group me-1"></i> Model: ${product.model}</p>
+                            <p class="text-xs text-gray-500 line-clamp-2 mb-4">${product.spec}</p>
+                            
+                            <div class="mt-auto pt-4 border-t border-gray-100 flex items-center justify-between">
+                                <div>
+                                    <span class="text-[10px] text-gray-400 font-medium block">Harga EDAN</span>
+                                    <span class="text-lg font-black text-gray-900">${formatRupiah(product.price)}</span>
+                                </div>
+                                <button onclick="openModal(${product.id})" class="bg-red-600 hover:bg-red-700 text-white text-xs font-bold px-4 py-2.5 rounded-xl transition shadow-sm">
+                                    Detail / Beli
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+        }
+
+        // Filter Kategori
+        function filterCategory(cat) {
+            renderProducts(cat);
+            document.querySelectorAll('.cat-btn').forEach(btn => {
+                btn.className = "cat-btn border px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-white text-gray-700 border-gray-200 hover:bg-gray-100 transition";
+            });
+            event.target.className = "cat-btn border px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-gray-900 text-white border-gray-900 transition";
+        }
+
+        // Buka Modal Detail & Order WA
+        function openModal(id) {
+            const product = products.find(p => p.id === id);
+            const content = document.getElementById('modal-content');
+
+            content.innerHTML = `
+                <div class="space-y-4">
+                    <img src="${product.image}" class="w-full h-48 object-cover rounded-xl border border-gray-100">
+                    <div>
+                        <span class="text-xs font-bold text-red-600 uppercase tracking-wide">${product.brand}</span>
+                        <h3 class="text-xl font-black text-gray-900">${product.name}</h3>
+                        <p class="text-2xl font-black text-gray-900 mt-1">${formatRupiah(product.price)}</p>
+                    </div>
+
+                    <div class="bg-gray-50 p-3 rounded-xl border border-gray-200 text-xs text-gray-600 space-y-1">
+                        <p><strong>Model:</strong> ${product.model}</p>
+                        <p><strong>Spesifikasi:</strong> ${product.spec}</p>
+                        <p><strong>Sisa Stok:</strong> ${product.stock} Pasang</p>
+                    </div>
+
+                    <form onsubmit="sendToWA(event, '${product.name}', ${product.price})">
+                        <div class="mb-3">
+                            <label class="block text-xs font-bold text-gray-700 mb-1">Pilih Ukuran (EU Size):</label>
+                            <select id="size-select" required class="w-full border border-gray-300 rounded-xl p-2.5 text-xs font-semibold focus:ring-2 focus:ring-red-500 focus:outline-none">
+                                ${product.sizes.map(s => `<option value="${s}">Ukuran ${s}</option>`).join('')}
+                            </select>
+                        </div>
+
+                        <div class="mb-4">
+                            <label class="block text-xs font-bold text-gray-700 mb-1">Metode Pembayaran:</label>
+                            <select id="payment-select" required class="w-full border border-gray-300 rounded-xl p-2.5 text-xs font-semibold focus:ring-2 focus:ring-red-500 focus:outline-none">
+                                <option value="Cash / Tunai">Cash / Tunai / COD</option>
+                                <option value="Transfer Bank BCA">Transfer Bank BCA</option>
+                                <option value="Transfer Bank Mandiri (BM)">Transfer Bank Mandiri (BM)</option>
+                                <option value="Transfer Bank BSI">Transfer Bank BSI</option>
+                                <option value="E-Wallet DANA">E-Wallet DANA</option>
+                                <option value="E-Wallet OVO">E-Wallet OVO</option>
+                                <option value="E-Wallet GOPAY">E-Wallet GOPAY</option>
+                                <option value="Angsuran / Paylater">Angsuran / Cicilan (Paylater)</option>
+                            </select>
+                        </div>
+
+                        <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-xl flex items-center justify-center gap-2 transition shadow-lg">
+                            <i class="fa-brands fa-whatsapp text-lg"></i>
+                            <span>Pesan via WhatsApp Sekarang</span>
+                        </button>
+                    </form>
+                </div>
+            `;
+
+            document.getElementById('modal').classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('modal').classList.add('hidden');
+        }
+
+        // Redirect WA EDAN STORE
+        function sendToWA(e, name, price) {
+            e.preventDefault();
+            const size = document.getElementById('size-select').value;
+            const payment = document.getElementById('payment-select').value;
+            
+            const message = `Halo EDAN STORE! Saya ingin memesan sepatu berikut:\n\n` +
+                            `📌 *Nama Sepatu:* ${name}\n` +
+                            `💰 *Harga:* ${formatRupiah(price)}\n` +
+                            `👟 *Ukuran:* EU ${size}\n` +
+                            `💳 *Metode Pembayaran:* ${payment}\n\n` +
+                            `Mohon konfirmasi ketersediaan stok & total tagihannya. Terima kasih!`;
+            
+            const waUrl = `https://wa.me/6285794793050?text=${encodeURIComponent(message)}`;
+            window.open(waUrl, '_blank');
+        }
+
+        // Init App
+        window.onload = function() {
+            renderProducts();
+        };
+    </script>
+</body>
+                                                                                                       </html>
